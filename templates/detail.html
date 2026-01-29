@@ -15,18 +15,36 @@
     </style>
 </head>
 
-<body class="bg-white max-w-[375px] mx-auto shadow-lg min-h-screen flex flex-col">
+<body class="bg-white max-w-[400px] mx-auto shadow-lg min-h-screen flex flex-col">
 
     <!-- Header -->
-    <header class="bg-white sticky top-0 z-50 px-4 py-3 flex items-center justify-between border-b border-gray-100">
-        <div class="flex items-center space-x-3">
-            <button onclick="location.href='/'" class="text-gray-900"><i
-                    class="fas fa-chevron-left text-lg"></i></button>
-            <h1 class="text-lg font-bold text-gray-900">후기 상세</h1>
+    <header class="bg-white sticky top-0 z-50">
+        <!-- Brand Bar -->
+        <div class="flex items-center justify-between px-4 pt-4 pb-2">
+            <div class="flex items-center space-x-2">
+                <button onclick="location.href='/'" class="text-gray-900 mr-2"><i
+                        class="fas fa-chevron-left text-lg"></i></button>
+                <img src="{{ url_for('static', filename='images/ts_logo_brand.png') }}" alt="트립스토어"
+                    class="h-8 object-contain cursor-pointer" onclick="location.href='/'">
+            </div>
+            <div class="flex items-center space-x-5 text-gray-700">
+                <button class="hover:text-black transition-colors" onclick="location.href='/'"><i
+                        class="fa-solid fa-house text-xl"></i></button>
+                <button class="hover:text-black transition-colors"><i
+                        class="fa-solid fa-share-nodes text-xl"></i></button>
+            </div>
         </div>
-        <div class="flex items-center space-x-4">
-            <button class="text-gray-800"><i class="fas fa-search text-lg"></i></button>
-            <button class="text-gray-800"><i class="far fa-share-square text-lg"></i></button>
+
+        <!-- Category Tabs -->
+        <div class="flex items-end px-4 border-b border-gray-100 overflow-x-auto hide-scrollbar bg-white">
+            <button class="px-2 py-3 text-gray-400 font-bold whitespace-nowrap text-[15px]">전체</button>
+            <button class="px-2 py-3 text-gray-400 font-bold whitespace-nowrap text-[15px]">일본</button>
+            <button class="px-2 py-3 text-gray-400 font-bold whitespace-nowrap text-[15px]">동남아</button>
+            <button class="px-2 py-3 text-gray-400 font-bold whitespace-nowrap text-[15px]">대만/홍콩/중국</button>
+            <div class="relative px-2 py-3">
+                <span class="text-gray-900 font-bold whitespace-nowrap text-[15px]">여행 후기</span>
+                <div class="absolute bottom-0 left-0 w-full h-[3px] bg-gray-900"></div>
+            </div>
         </div>
     </header>
 
@@ -211,7 +229,8 @@
 
                     <!-- Content -->
                     <p class="text-sm text-gray-600 line-clamp-3 leading-relaxed mb-3">{{ related.content_preview }}
-                        <span class="text-gray-400 underline ml-1">더보기</span></p>
+                        <span class="text-gray-400 underline ml-1">더보기</span>
+                    </p>
 
                     <!-- Footer: Author & Date -->
                     <div class="flex justify-between items-center border-t border-gray-50 pt-3">
